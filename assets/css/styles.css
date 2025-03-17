@@ -1,0 +1,87 @@
+/* assets/css/styles.css */
+
+/* COLOR PALETTE (Feel free to adjust) */
+:root {
+    --accent-color: #4aa3a3;          /* Soft teal for links & accents */
+    --accent-color-hover: #3e8a8a;    /* Hover state for links */
+    --border-color: #e0e0e0;          /* Light border for header/footer lines */
+    --text-color: #333333;            /* Body text */
+    --header-bg: #ffffff;             /* Header background */
+    --footer-bg: #f9f9f9;             /* Footer background */
+    --body-bg: #ffffff;               /* Main page background */
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* Container for centering and consistent max width */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  /* Header */
+  .site-header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem 0;
+  }
+  
+  .site-title {
+    display: inline-block;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .site-title a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+  
+  /* Navigation */
+  .site-nav {
+    float: right;
+    margin-top: 0.3rem;
+  }
+  .site-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+  .site-nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .site-nav a:hover {
+    color: var(--accent-color-hover);
+  }
+  
+  /* Main Content */
+  main.container {
+    padding-top: 2rem;
+  }
+  
+  /* Footer */
+  .site-footer {
+    background-color: var(--footer-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 1rem 0;
+    margin-top: 2rem;
+  }
+  .site-footer p {
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
