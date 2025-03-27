@@ -3,10 +3,9 @@ layout: default
 title: "PPOO project"
 permalink: /projects/PPOOBA2/
 ---
-# Project 1
+# Swiss Transport App
 
 ## Overview
-
 Basically a swiss Transport app
 ## Features
 - Feature A
