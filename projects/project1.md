@@ -10,6 +10,19 @@ Welcome ! I will try to explain my thoughts and processes regarding this project
 
 Npulse is an EPFL make student association that develops open source, non invasive biomedical solutions. During the 2024-2025 academic year, the project was to develop an arm prosthesis controlled by EMG under a tight budget constraint (1000$).
 
+## Table of Contents
+- [Overview](#overview)
+- [Objective](#objective)
+- [Project Description](#project-description)
+  - [Audio](#audio)
+  - [Object Selection](#object-selection)
+  - [Filtering](#filtering)
+  - [Point Cloud Completion](#point-cloud-completion)
+  - [Grasping Method](#grasping-method)
+  - [Grasping Pattern](#grasping-pattern)
+  - [Wrist Orientation](#wrist-orientation)
+  - [Pressure](#pressure)
+
 ## Objective
 The objective is to accompany the EMG signals with audio and vision inputs to try to reproduce how the human brain + eye + arm pipeline usually works. To do this, we equip the user with a head mounted camera (Intel RealSense d435i), a small microphone and a Raspberry PI 5 8gb with an ai module of 26TOPS. 
 Trying to only use in house solutions, we used a mix of ML models (Depthwise Separable CNN, Linear Regression, ...) and heuristic approach to reduce computational strain and boost speed. 
