@@ -11,5 +11,6 @@ Below is a list of my recent work. Click any link to learn more:
 - [Project 2](/projects/project2/)
 - [Swiss Transport App](/projects/PPOOBA2/)
 - [Laidlaw](/projects/Research_Internship/)
+- [Haptics Npulse](/projects/Haptics_Npulse/)
 
 *(Replace with the actual projects you want to showcase.)*
