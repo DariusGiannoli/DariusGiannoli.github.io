@@ -15,11 +15,9 @@ Research Projects:
 - [Summer Research Internship -- EPFL LIS](/projects/Research_Internship/)
 - [Student Researcher -- EPFL LIS](/projects/)
 
-
 Projects: 
 - [Computer Vision & Audio based user intent prediction -- EPFL Npulse](/projects/project1/)
 - [Haptics Npulse -- EPFL Npulse](/projects/Haptics_Npulse/)
-
 
 Course Projects: 
 - [Swiss Transport App](/projects/PPOOBA2/)
