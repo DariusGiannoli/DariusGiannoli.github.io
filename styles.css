@@ -1062,6 +1062,15 @@ footer {
     z-index: 1;
 }
 
+.construction-gif {
+    width: 280px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
 @keyframes floatRotate {
     0%, 100% {
         transform: translateY(0px) rotate(-5deg);
