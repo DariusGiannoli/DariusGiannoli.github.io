@@ -989,8 +989,8 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(15, 76, 129, 0.95) 0%, rgba(22, 27, 38, 0.98) 100%);
-    backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(22, 27, 38, 0.85);
+    backdrop-filter: blur(15px);
     align-items: center;
     justify-content: center;
     animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1008,32 +1008,31 @@ footer {
 }
 
 .modal-overlay .modal-content {
-    background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
-    padding: 3.5rem 4rem;
-    border-radius: 24px;
-    max-width: 520px;
-    width: 90%;
-    margin: 0 auto;
+    background: transparent;
+    padding: 2rem;
+    border-radius: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
     text-align: center;
-    box-shadow:
-        0 30px 90px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(96, 165, 250, 0.2);
-    animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: none;
+    border: none;
+    animation: none;
     position: relative;
-    overflow: hidden;
+    top: auto;
+    left: auto;
+    transform: none;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .modal-overlay .modal-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.1), transparent);
-    animation: shimmer 3s infinite;
+    display: none;
 }
 
 @keyframes shimmer {
@@ -1053,22 +1052,26 @@ footer {
 }
 
 .modal-icon {
-    font-size: 5rem;
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    animation: floatRotate 4s ease-in-out infinite;
-    filter: drop-shadow(0 8px 20px rgba(251, 191, 36, 0.4));
     position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
     z-index: 1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .construction-gif {
-    width: 280px;
+    width: 100%;
     height: auto;
-    max-width: 100%;
     display: block;
-    border-radius: 16px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+    box-shadow: none;
+    object-fit: contain;
 }
 
 @keyframes floatRotate {
@@ -1086,29 +1089,33 @@ footer {
     }
 }
 
+.modal-overlay .modal-content > h2,
+.modal-overlay .modal-content > p,
+.modal-overlay .modal-content > button {
+    position: relative;
+    z-index: 2;
+}
+
 .modal-overlay .modal-content h2 {
     font-family: var(--font-heading);
     font-size: 2.25rem;
-    background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0 0 1.25rem 0;
+    color: white;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+    margin: 0;
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.15;
-    position: relative;
-    z-index: 1;
 }
 
 .modal-overlay .modal-content p {
     font-size: 1.125rem;
-    color: rgba(226, 232, 240, 0.9);
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
     line-height: 1.7;
-    margin: 0 0 2.5rem 0;
+    margin: 0;
     font-family: var(--font-body);
-    position: relative;
-    z-index: 1;
+    max-width: 600px;
+    padding: 0 2rem;
 }
 
 .modal-btn {
@@ -1128,9 +1135,8 @@ footer {
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
     letter-spacing: 0.02em;
     display: inline-block;
-    position: relative;
-    z-index: 1;
     overflow: hidden;
+    position: relative;
 }
 
 .modal-btn::before {
