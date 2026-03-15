@@ -12,7 +12,7 @@ Profite de cette journée.
 
 ### Tout le meilleur pour tes 21 ans. 
 
-Plein de succès. Plein de bonheur avec les gens que t’aimes, qui t’aiment en retour aussi, j’en suis sûr. Ils ont de la chance de t’avoir (et sûrement ils ne s’en rendent pas encore assez bien compte).
+Plein de succès. Plein de bonheur avec les gens que t’aimes, qui t’aiment en retour aussi, j’en suis sûr. Ils ont de la chance de t’avoir (et sûrement ils ne s’en rendent pas encore assez bien compte de cette chance et à quel point t'es une personne extraordinaire, vraiment incroyable).
 
 Voilà. Encore une fois profites. **Joyeux 21 ans.** ![Darius 21 ans](darius_21_ans.jpeg)
 
