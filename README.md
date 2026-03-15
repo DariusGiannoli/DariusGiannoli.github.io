@@ -1,6 +1,6 @@
 # Bon anniversaire Darius. 🎂
 
-Pas de cadeau physique cette année mais j’ai pensé à ça à la place.
+Pas de cadeau physique cette année mais j’ai pensé à ça à la place. (quoique j'ai toujours pas ouvert tes meta oakley)
 
 Je t’ai mis ton site à jour avec les infos que j’avais pu obtenir. 
 
@@ -10,7 +10,7 @@ Profite de cette journée.
 
 ---
 
-### Tous le meilleur pour tes 21 ans. 
+### Tout le meilleur pour tes 21 ans. 
 
 Plein de succès. Plein de bonheur avec les gens que t’aimes, qui t’aiment en retour aussi, j’en suis sûr. Ils ont de la chance de t’avoir (et sûrement ils ne s’en rendent pas encore assez bien compte).
 
