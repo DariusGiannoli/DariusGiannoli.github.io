@@ -12,10 +12,65 @@
         // Apply theme before page renders to avoid flash
         (function() {
             const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            const theme = savedTheme || 'light';
             document.documentElement.setAttribute('data-theme', theme);
         })();
+        // Balloons Birthday Animation - show only on March 16
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            if ((today.getMonth() === 2 && today.getDate() === 16) || (today.getMonth() === 2 && today.getDate() === 15) || (today.getMonth() === 2 && today.getDate() === 17)) { // March 16 (le 15 pour Singap au cas ou)
+                const container = document.createElement('div');
+                container.id = 'balloon-birthday-container';
+                document.body.appendChild(container);
+
+                const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#1dd1a1', '#a855f7', '#fb923c', '#f472b6', '#34d399'];
+
+                for (let i = 0; i < 40; i++) {
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const delay = (Math.random() * 6).toFixed(2);
+                    const duration = (8 + Math.random() * 6).toFixed(1);
+                    const sway = (1.8 + Math.random() * 1.5).toFixed(1);
+
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'balloon-wrapper';
+                    wrapper.style.left = (Math.random() * 92 + 2) + 'vw';
+                    wrapper.style.setProperty('--delay', delay + 's');
+                    wrapper.style.setProperty('--duration', duration + 's');
+                    wrapper.style.setProperty('--sway', sway + 's');
+
+                    const balloon = document.createElement('div');
+                    balloon.className = 'balloon-birthday';
+                    balloon.style.setProperty('--color', color);
+
+                    const string = document.createElement('div');
+                    string.className = 'balloon-string';
+
+                    wrapper.appendChild(balloon);
+                    wrapper.appendChild(string);
+                    container.appendChild(wrapper);
+                }
+
+                const msg = document.createElement('div');
+                msg.id = 'birthday-message';
+                msg.innerHTML = `
+                    <span class="bday-emoji">🎂</span>
+                    <div class="bday-text">
+                        <span class="bday-title">It is Darius' Birthday!</span>
+                        <span class="bday-sub">Wish him an amazing day 🎉</span>
+                    </div>
+                    <span class="bday-emoji">🎈</span>
+                `;
+                document.body.appendChild(msg);
+
+                setTimeout(() => {
+                    container.style.transition = 'opacity 1s ease';
+                    container.style.opacity = '0';
+                    msg.style.transition = 'opacity 1s ease';
+                    msg.style.opacity = '0';
+                    setTimeout(() => { container.remove(); msg.remove(); }, 1000);
+                }, 13000);
+            }
+        });
     </script>
 </head>
 <body>
@@ -57,7 +112,7 @@
                     <h1>Darius Dayu Giannoli</h1>
                     <p class="subtitle">Student Researcher @ LIS and NTU.</p>
                     <p class="intro">
-                        Computer Science student at EPFL. I research wearable robotics, haptic feedback systems, and human-robot interaction at the Laboratory of Intelligent Systems. I will soon work on Humanoid Robotics at NTU Singapore as part of the Global Connect Fellowship.
+                        Computer Science student at EPFL. I research wearable robotics, haptic feedback systems, and human-robot interaction at the Laboratory of Intelligent Systems. I am currently working on Humanoid Robotics and Binocular Vision at NTU Singapore as part of the Global Connect Fellowship. I apply my research on Humanoid Robotics at the EPFL AI Team by leading the Humanoid Team and building Mina, the first humanoid on campus.
                     </p>
                     <p class="links">
                         <a href="mailto:darius.giannoli@epfl.ch">Email</a>
@@ -103,13 +158,13 @@
 
             <div class="entry">
                 <div class="entry-left">
-                    <img src="assets/logos/lis.png" alt="" class="logo-img">
+                    <img src="assets/logos/nus_logo.png" alt="" class="logo-img">
                 </div>
                 <div class="entry-main">
-                    <p class="entry-title">Haptic Feedback for Drone Swarm Embodiment</p>
-                    <p class="entry-org">Laboratory of Intelligent Systems, EPFL — Prof. Dario Floreano</p>
-                    <p class="entry-meta">Jun 2025 – Present</p>
-                    <p class="entry-desc">Developing wearable haptic devices combining vibration and compression for drone swarm control. Conducting behavioral studies on multi-channel tactile encoding.</p>
+                    <p class="entry-title">Soft Robotics Laboratory</p>
+                    <p class="entry-org">National University of Singapore</p>
+                    <p class="entry-meta">2026 – Present</p>
+                    <p class="entry-desc">Incoming summer research internship at the Soft Robotics Laboratory.</p>
                 </div>
             </div>
 
@@ -117,10 +172,23 @@
                 <div class="entry-left">
                     <img src="assets/logos/ntu.svg" alt="" class="logo-img">
                 </div>
-                <div class="entry-main">Humanoid Robotics & AI Group
+                <div class="entry-main">
+                    <p class="entry-title">Humanoid Robotics & AI Group</p>
                     <p class="entry-org"><a href="https://www.ntu.edu.sg/rrc/robotics-research-centre-groups/humanoid-ai-group" target="_blank" class="inline-link">NTU Singapore</a> — Prof. Xie Ming</p>
                     <p class="entry-meta">Feb – Mar 2026 · Global Connect Fellowship</p>
                     <p class="entry-desc">Selected as a student researcher for the competitive NTU Global Connect Fellowship program for a 2 months research in the Humanoid Robotics Lab.</p>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-left">
+                    <img src="assets/logos/lis.png" alt="" class="logo-img">
+                </div>
+                <div class="entry-main">
+                    <p class="entry-title">Haptic Feedback for Drone Swarm Embodiment</p>
+                    <p class="entry-org">Laboratory of Intelligent Systems, EPFL — Prof. Dario Floreano</p>
+                    <p class="entry-meta">Jun 2025 – Present</p>
+                    <p class="entry-desc">Developing wearable haptic devices combining vibration and compression for drone swarm control. Conducting behavioral studies on multi-channel tactile encoding.</p>
                 </div>
             </div>
         </section>
@@ -136,7 +204,7 @@
                     <p class="entry-title">Humanoid Robotics Project Lead</p>
                     <p class="entry-org">AI TEAM</p>
                     <p class="entry-meta">Feb 2026 – Present</p>
-                    <p class="entry-desc"></p>
+                    <p class="entry-desc">Building Mina, the first Humanoid at EPFL</p>
                 </div>
             </div>
 
@@ -209,7 +277,29 @@
             <h2>Projects</h2>
 
             <div class="project-list">
-                <a href="prostgrasp.html" class="project-card">
+                <a href="https://github.com/SAPIEN-AIT" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="assets/projects/darius_humanoid.jpeg" alt="SAPIEN">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-title">SAPIEN — Mina Humanoid</span>
+                        <span class="project-desc">Currently building our first iteration of our Humanoid Robot called Mina, based on the Berkeley Humanoid Lite</span>
+                    </div>
+                    <span class="project-arrow">→</span>
+                </a>
+
+                <a href="https://github.com/DariusGiannoli/RecognitionBenchmark" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="assets/projects/recognition.peg.jpeg" alt="Recognition Benchmark">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-title">Recognition Benchmark</span>
+                        <span class="project-desc">Perception benchmark conducted at NTU during the Global Connect Fellowship</span>
+                    </div>
+                    <span class="project-arrow">→</span>
+                </a>
+
+                <a href="https://github.com/DariusGiannoli/ProstGrasp" target="_blank" class="project-card">
                     <div class="project-image">
                         <img src="assets/projects/prostgrasp.png" alt="ProstGrasp">
                     </div>
@@ -220,7 +310,7 @@
                     <span class="project-arrow">→</span>
                 </a>
 
-                <a href="vibraforge.html" class="project-card">
+                <a href="https://github.com/DariusGiannoli/VibraForge_GUI" target="_blank" class="project-card">
                     <div class="project-image">
                         <img src="assets/projects/gui_vibraforge.png" alt="VibraForge">
                     </div>
@@ -231,7 +321,7 @@
                     <span class="project-arrow">→</span>
                 </a>
 
-                <a href="visionpro-teleop.html" class="project-card">
+                <a href="https://github.com/DariusGiannoli/VisionTracker" target="_blank" class="project-card">
                     <div class="project-image">
                         <img src="assets/projects/vision-pro.jpg" alt="VisionPro Teleop">
                     </div>
@@ -250,6 +340,10 @@
                 <div class="course-category">
                     <h3 class="category-title">Computer Science</h3>
                     <ul class="course-list">
+                        <li>Algorithms I</li>
+                        <li>Computer Systems</li>
+                        <li>Introduction to Machine Learning</li>
+                        <li>Signal Processing</li>
                         <li>Advanced Information, Computation, Communication I & II</li>
                         <li>Introduction to Programming</li>
                         <li>Object-Oriented Programming</li>
@@ -376,12 +470,12 @@
                 updateThemeIcon(theme);
             }
 
-            // Detect system preference
+            // Detect system preference (for live changes only)
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-            // Get saved theme or use system preference
+            // Get saved theme, defaulting to light
             const savedTheme = localStorage.getItem('theme');
-            const initialTheme = savedTheme || (prefersDark.matches ? 'dark' : 'light');
+            const initialTheme = savedTheme || 'light';
 
             // Apply initial theme
             applyTheme(initialTheme);
