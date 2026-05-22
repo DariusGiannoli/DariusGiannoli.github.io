@@ -467,7 +467,7 @@ main {
 
 .latest-card {
     display: grid;
-    grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
+    grid-template-columns: minmax(380px, 560px) minmax(0, 1fr);
     gap: 1.45rem;
     align-items: center;
     padding: 1rem;
@@ -481,7 +481,7 @@ main {
 
 .latest-media-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 112px;
+    grid-template-columns: minmax(180px, 0.72fr) minmax(220px, 1fr);
     gap: 0.75rem;
     align-items: stretch;
 }
@@ -489,17 +489,14 @@ main {
 .latest-media {
     justify-self: center;
     width: 100%;
-    max-width: 320px;
+    max-width: none;
     min-width: 0;
     aspect-ratio: 9 / 16;
     border-radius: var(--radius);
     overflow: hidden;
     background: #0b111a;
     border: 1px solid var(--border);
-}
-
-.latest-media-primary {
-    max-width: none;
+    box-shadow: var(--shadow-soft);
 }
 
 .latest-media video {
@@ -509,38 +506,29 @@ main {
     object-fit: contain;
 }
 
-.latest-side-media {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 0.75rem;
-    min-width: 0;
-}
-
-.latest-thumb {
+.latest-photo {
     position: relative;
-    min-height: 0;
-    border: 1px dashed var(--border-strong);
+    min-width: 0;
+    border: 1px solid var(--border);
     border-radius: var(--radius);
-    background:
-        linear-gradient(135deg, rgba(15, 95, 140, 0.08), transparent 60%),
-        var(--bg-tertiary);
-    color: var(--muted);
+    background: var(--bg-tertiary);
     overflow: hidden;
+    box-shadow: var(--shadow-soft);
 }
 
-.latest-thumb img,
-.latest-thumb video {
+.latest-photo img {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
+    object-position: center;
 }
 
-.latest-thumb span {
+.latest-photo figcaption {
     position: absolute;
     inset: auto 0 0 0;
-    padding: 0.45rem;
-    background: linear-gradient(to top, rgba(11, 17, 26, 0.72), transparent);
+    padding: 0.5rem;
+    background: linear-gradient(to top, rgba(11, 17, 26, 0.74), transparent);
     color: #ffffff;
     font-family: var(--font-heading);
     font-size: 0.72rem;
@@ -1515,13 +1503,8 @@ footer {
         max-width: min(100%, 340px);
     }
 
-    .latest-side-media {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: none;
-    }
-
-    .latest-thumb {
-        min-height: 110px;
+    .latest-photo {
+        min-height: 260px;
     }
 
     .latest-copy {
