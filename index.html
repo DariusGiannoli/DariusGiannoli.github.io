@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
     <title>Darius Giannoli | EPFL Computer Science & Robotics Researcher</title>
     <meta name="description" content="Darius Giannoli is a Computer Science student at EPFL researching wearable robotics, haptic feedback systems, humanoid robotics, and human-robot interaction.">
     <meta name="author" content="Darius Dayu Giannoli">
@@ -46,14 +47,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=wm20260622">
+    <link rel="stylesheet" href="styles.css?v=20261103-nav">
     <script>
-        // Apply theme before page renders to avoid flash
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            const theme = savedTheme || 'light';
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
         // Balloons Birthday Animation - show only on March 16
         document.addEventListener('DOMContentLoaded', function() {
             const today = new Date();
@@ -113,23 +108,17 @@
     </script>
 </head>
 <body>
-    <nav>
+    <nav aria-label="Main navigation">
         <a href="index.html" class="logo">Darius Dayu Giannoli</a>
-        <div class="nav-right">
-            <ul class="nav-links">
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="mailto:darius.giannoli@epfl.ch">Contact</a></li>
-            </ul>
-            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
-                <div class="theme-toggle-slider">☀️</div>
-            </button>
-        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#research">Research</a></li>
+        </ul>
     </nav>
 
     <main>
-        <header class="hero">
+        <header id="about" class="hero">
             <div class="hero-content">
                 <div class="hero-photo">
                     <!-- Replace with your photo -->
@@ -165,8 +154,8 @@
             </article>
         </section>
 
-        <section id="experience">
-            <h2>Experience</h2>
+        <section id="research">
+            <h2>Research</h2>
 
             <div class="entry">
                 <div class="entry-left entry-initials" aria-hidden="true">WM</div>
@@ -323,57 +312,6 @@
             if (e.key === 'Escape') closeCV();
         });
 
-        // All functionality after DOM loads
-        document.addEventListener('DOMContentLoaded', () => {
-            // ===== Dark Mode Toggle =====
-            const themeToggle = document.getElementById('themeToggle');
-            const themeSlider = document.querySelector('.theme-toggle-slider');
-            const html = document.documentElement;
-
-            // Function to update icon based on theme
-            function updateThemeIcon(theme) {
-                if (themeSlider) {
-                    themeSlider.textContent = theme === 'dark' ? '🌙' : '☀️';
-                }
-            }
-
-            // Function to apply theme
-            function applyTheme(theme) {
-                html.setAttribute('data-theme', theme);
-                updateThemeIcon(theme);
-            }
-
-            // Detect system preference (for live changes only)
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-
-            // Get saved theme, defaulting to light
-            const savedTheme = localStorage.getItem('theme');
-            const initialTheme = savedTheme || 'light';
-
-            // Apply initial theme
-            applyTheme(initialTheme);
-
-            // Listen for system theme changes (only if user hasn't manually set a preference)
-            prefersDark.addEventListener('change', (e) => {
-                if (!localStorage.getItem('theme')) {
-                    applyTheme(e.matches ? 'dark' : 'light');
-                }
-            });
-
-            // Toggle theme on button click
-            if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    const theme = html.getAttribute('data-theme');
-                    const newTheme = theme === 'light' ? 'dark' : 'light';
-
-                    // Save theme preference
-                    localStorage.setItem('theme', newTheme);
-
-                    // Reload page to apply theme
-                    window.location.reload();
-                });
-            }
-        });
     </script>
 </body>
 </html>
