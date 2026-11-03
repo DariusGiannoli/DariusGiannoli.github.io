@@ -650,6 +650,24 @@ section h2 {
     line-height: 1.7;
 }
 
+.entry-projects {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 0.75rem;
+}
+
+.entry-project-title {
+    font-size: 0.96rem;
+    font-weight: 500;
+    line-height: 1.55;
+    color: var(--text-heading);
+    margin-bottom: 0.15rem;
+}
+
+.entry-project .entry-meta:last-child {
+    margin-bottom: 0;
+}
+
 /* Publications */
 .publication-entry {
     display: flex;
