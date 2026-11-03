@@ -623,6 +623,7 @@ section h2 {
 
 .entry-main {
     flex: 1;
+    min-width: 0;
 }
 
 .entry-title {
@@ -666,6 +667,15 @@ section h2 {
 
 .entry-project .entry-meta:last-child {
     margin-bottom: 0;
+}
+
+.research-section .entry-title {
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.research-section .entry-org {
+    margin-bottom: 0.35rem;
 }
 
 /* Publications */
