@@ -641,6 +641,7 @@ section h2 {
 .project-media-header p { margin: 0; }
 
 .project-media-controls { display: flex; gap: 0.35rem; }
+.project-media-controls[hidden] { display: none; }
 
 .project-media-controls button {
     width: 32px;

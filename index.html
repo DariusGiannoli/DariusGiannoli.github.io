@@ -47,7 +47,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261104-mina-media">
+    <link rel="stylesheet" href="styles.css?v=20261104-mina-merged">
     <script>
         // Balloons Birthday Animation - show only on March 16
         document.addEventListener('DOMContentLoaded', function() {
@@ -256,17 +256,10 @@
                         </figure>
                         <figure>
                             <video controls muted playsinline preload="none" poster="assets/media/mina/teleop-poster.jpg" aria-label="VR teleoperation, silent video">
-                                <source src="assets/media/mina/teleop.mp4" type="video/mp4">
-                                <a href="assets/media/mina/teleop.mp4">Watch the teleoperation demonstration</a>.
+                                <source src="assets/media/mina/teleoperation.mp4" type="video/mp4">
+                                <a href="assets/media/mina/teleoperation.mp4">Watch the teleoperation demonstration</a>.
                             </video>
                             <figcaption>VR teleoperation</figcaption>
-                        </figure>
-                        <figure>
-                            <video controls muted playsinline preload="none" poster="assets/media/mina/teleop2-poster.jpg" aria-label="Teleoperation second view, silent video">
-                                <source src="assets/media/mina/teleop2.mp4" type="video/mp4">
-                                <a href="assets/media/mina/teleop2.mp4">Watch the second teleoperation demonstration</a>.
-                            </video>
-                            <figcaption>Teleoperation · second view</figcaption>
                         </figure>
                         <figure>
                             <a href="assets/media/mina/team.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size photo of the Mina team">
@@ -348,6 +341,7 @@
         const mediaButtons = document.querySelectorAll('[data-media-direction]');
         function updateMediaControls() {
             const end = minaMedia.scrollWidth - minaMedia.clientWidth;
+            document.querySelector('.project-media-controls').hidden = end <= 2;
             mediaButtons.forEach(button => {
                 button.disabled = Number(button.dataset.mediaDirection) < 0
                     ? minaMedia.scrollLeft <= 2
