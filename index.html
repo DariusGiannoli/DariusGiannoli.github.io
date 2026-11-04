@@ -293,7 +293,7 @@
             <div class="modal-header">
                 <span class="modal-title">Curriculum Vitae</span>
                 <div class="modal-actions">
-                    <a href="assets/cv.pdf" download class="modal-btn">Download</a>
+                    <a href="assets/cv.pdf?v=3ec7179e2a90" download class="modal-btn">Download</a>
                     <button onclick="closeCV()" class="modal-close">×</button>
                 </div>
             </div>
@@ -304,7 +304,7 @@
     <script>
         function openCV() {
             document.getElementById('cv-modal').classList.add('active');
-            document.getElementById('cv-iframe').src = 'assets/cv.pdf';
+            document.getElementById('cv-iframe').src = 'assets/cv.pdf?v=3ec7179e2a90';
             document.body.style.overflow = 'hidden';
         }
         
