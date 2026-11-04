@@ -342,6 +342,13 @@ main {
     display: none;
 }
 
+.hero .construction-note {
+    margin-top: 0.85rem;
+    color: #b91c1c;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
 /* Latest Highlight */
 .latest-section {
     padding-top: 0;
