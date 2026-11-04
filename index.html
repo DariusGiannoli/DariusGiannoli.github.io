@@ -47,7 +47,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261104-resources">
+    <link rel="stylesheet" href="styles.css?v=20261104-mina-media">
     <script>
         // Balloons Birthday Animation - show only on March 16
         document.addEventListener('DOMContentLoaded', function() {
@@ -230,7 +230,7 @@
         <section id="projects">
             <h2>Projects</h2>
 
-            <div class="entry">
+            <div class="entry" id="mina">
                 <div class="entry-left">
                     <img src="assets/logos/ai-team.png" alt="" class="logo-img">
                 </div>
@@ -239,6 +239,48 @@
                     <p class="entry-org">Humanoid Robotics Project Lead · EPFL AI Team</p>
                     <p class="entry-meta">Feb 2026 – Jul 2026</p>
                     <p class="entry-desc">Led development of Mina, a humanoid robot based on the Berkeley Humanoid Lite.</p>
+                    <div class="project-media-header">
+                        <p>Videos &amp; photos</p>
+                        <div class="project-media-controls" role="group" aria-label="Mina gallery navigation">
+                            <button type="button" data-media-direction="-1" aria-controls="mina-media" aria-label="Previous Mina photos and videos" disabled>←</button>
+                            <button type="button" data-media-direction="1" aria-controls="mina-media" aria-label="Next Mina photos and videos">→</button>
+                        </div>
+                    </div>
+                    <div class="project-media" id="mina-media" role="region" aria-label="Mina videos and photos" tabindex="0">
+                        <figure>
+                            <video controls muted playsinline preload="none" poster="assets/media/mina/mina-poster.jpg" aria-label="Mina demonstration, silent video">
+                                <source src="assets/media/mina/mina.mp4" type="video/mp4">
+                                <a href="assets/media/mina/mina.mp4">Watch the Mina demonstration</a>.
+                            </video>
+                            <figcaption>Mina demonstration</figcaption>
+                        </figure>
+                        <figure>
+                            <video controls muted playsinline preload="none" poster="assets/media/mina/teleop-poster.jpg" aria-label="VR teleoperation, silent video">
+                                <source src="assets/media/mina/teleop.mp4" type="video/mp4">
+                                <a href="assets/media/mina/teleop.mp4">Watch the teleoperation demonstration</a>.
+                            </video>
+                            <figcaption>VR teleoperation</figcaption>
+                        </figure>
+                        <figure>
+                            <video controls muted playsinline preload="none" poster="assets/media/mina/teleop2-poster.jpg" aria-label="Teleoperation second view, silent video">
+                                <source src="assets/media/mina/teleop2.mp4" type="video/mp4">
+                                <a href="assets/media/mina/teleop2.mp4">Watch the second teleoperation demonstration</a>.
+                            </video>
+                            <figcaption>Teleoperation · second view</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="assets/media/mina/team.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size photo of the Mina team">
+                                <img src="assets/media/mina/team.jpg" alt="The Mina team gathered around the humanoid robot" width="1066" height="1600" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>The Mina team</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="assets/media/mina/nvidia-demo.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size Mina photo from NVIDIA Robotics">
+                                <img src="assets/media/mina/nvidia-demo.png" alt="Mina demonstration featured in a NVIDIA Robotics post" width="1290" height="2304" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>NVIDIA Robotics</figcaption>
+                        </figure>
+                    </div>
                 </div>
             </div>
 
@@ -302,6 +344,28 @@
     </div>
 
     <script>
+        const minaMedia = document.getElementById('mina-media');
+        const mediaButtons = document.querySelectorAll('[data-media-direction]');
+        function updateMediaControls() {
+            const end = minaMedia.scrollWidth - minaMedia.clientWidth;
+            mediaButtons.forEach(button => {
+                button.disabled = Number(button.dataset.mediaDirection) < 0
+                    ? minaMedia.scrollLeft <= 2
+                    : minaMedia.scrollLeft >= end - 2;
+            });
+        }
+        mediaButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                minaMedia.scrollBy({
+                    left: Number(button.dataset.mediaDirection) * (minaMedia.querySelector('figure').offsetWidth + 12),
+                    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+                });
+            });
+        });
+        minaMedia.addEventListener('scroll', updateMediaControls, { passive: true });
+        window.addEventListener('resize', updateMediaControls);
+        updateMediaControls();
+
         function openCV() {
             document.getElementById('cv-modal').classList.add('active');
             document.getElementById('cv-iframe').src = 'assets/cv.pdf?v=3ec7179e2a90';
