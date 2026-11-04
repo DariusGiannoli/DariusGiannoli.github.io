@@ -49,7 +49,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="assets/images/profile.webp" as="image" type="image/webp" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261104-construction-note">
+    <link rel="stylesheet" href="styles.css?v=20261104-swarm-video">
     <script>
         // Balloons Birthday Animation - show only on March 16
         document.addEventListener('DOMContentLoaded', function() {
@@ -178,13 +178,23 @@
                             <h4 class="entry-project-title">World Models &amp; Morphing Drones</h4>
                             <p class="entry-meta">Sep 2026 – Present · Current project</p>
                         </div>
-                        <div class="entry-project">
+                        <div class="entry-project" id="swarm-control">
                             <h4 class="entry-project-title">Drone Swarm Control, Haptics &amp; Embodiment</h4>
                             <p class="entry-meta">Started Jun 2025 · Completed project</p>
                             <p class="entry-desc">Investigated body-motion control for first-person-view drone swarm teleoperation. Developed wearable vibration and compression feedback and conducted behavioral studies on multi-channel tactile encoding.</p>
+                            <figure class="research-video">
+                                <div class="video-frame">
+                                    <button class="video-preview" type="button" data-youtube-id="TvPpD1oifpQ" aria-label="Play the drone swarm demonstration, muted by default">
+                                        <img src="https://i.ytimg.com/vi/TvPpD1oifpQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+                                        <span class="video-play" aria-hidden="true">▶</span>
+                                    </button>
+                                </div>
+                                <figcaption>Body-motion control demonstration</figcaption>
+                            </figure>
                             <div class="resource-links" role="group" aria-label="Drone swarm project resources">
                                 <a href="https://github.com/DariusGiannoli/SwarmControl" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
                                 <a href="https://arxiv.org/abs/2609.18881" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a>
+                                <a href="https://www.youtube.com/watch?v=TvPpD1oifpQ" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
                             </div>
                         </div>
                     </div>
@@ -342,6 +352,19 @@
     </div>
 
     <script>
+        document.querySelectorAll('[data-youtube-id]').forEach(button => {
+            button.addEventListener('click', () => {
+                const player = document.createElement('iframe');
+                player.src = `https://www.youtube-nocookie.com/embed/${button.dataset.youtubeId}?autoplay=1&mute=1&playsinline=1&rel=0`;
+                player.title = 'Drone swarm body-motion control demonstration';
+                player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+                player.allowFullscreen = true;
+                player.referrerPolicy = 'strict-origin-when-cross-origin';
+                button.replaceWith(player);
+                player.focus();
+            });
+        });
+
         const minaMedia = document.getElementById('mina-media');
         const mediaButtons = document.querySelectorAll('[data-media-direction]');
         function updateMediaControls() {
