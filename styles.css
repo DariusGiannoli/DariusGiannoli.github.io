@@ -797,6 +797,12 @@ section h2 {
     line-height: 1.55;
 }
 
+.lab-professor {
+    font-size: 0.9em;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
 .research-section .entry-org {
     margin-bottom: 0.35rem;
 }
