@@ -633,7 +633,17 @@ section h2 {
     min-width: 0;
 }
 
-#mina, #swarm-control { scroll-margin-top: 8rem; }
+#mina, #swarm-control, #ntu-research { scroll-margin-top: 8rem; }
+
+.research-photo { max-width: 400px; margin: 0.85rem 0 0; }
+.research-photo a { display: block; }
+.research-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+}
 
 .research-video { max-width: 400px; margin: 0.85rem 0 0; }
 
